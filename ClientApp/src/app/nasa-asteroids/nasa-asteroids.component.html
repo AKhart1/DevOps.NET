@@ -1,0 +1,108 @@
+<button class="show-data-button" (click)="showData = !showData">Nearest</button>
+<div *ngIf="showData">
+  <form>
+      <ng-container *ngIf="asteroids && asteroids.length > 0; else noDataMessage">
+        <div class="row">
+          <div class="col">
+            <p><strong>Name:</strong> {{getNearestAsteroid().name}}</p>
+          </div>
+          <div class="col">
+            <p><strong>Absolute magnitude (h):</strong> {{getNearestAsteroid().absolute_magnitude_h}}</p>
+          </div>
+          <div class="col">
+            <p><strong>Distance:</strong> {{getNearestAsteroid().distance}}</p>
+          </div>
+          <div class="col">
+            <p><strong>Relative Velocity (km/h):</strong> {{getNearestAsteroid().relative_velocity}}</p>
+          </div>
+          <div class="col">
+            <p><strong>IsUnsafe:</strong> {{getNearestAsteroid().is_potentially_hazardous_asteroid}}</p>
+          </div>
+          <div class="col">
+            <p><strong>Orbiting Body:</strong> {{getNearestAsteroid().orbiting_body}}</p>
+          </div>
+        </div>
+      </ng-container>
+    </form>
+</div>
+
+<ng-template #noDataMessage>
+  <p>{{getNearestAsteroid()}}</p>
+</ng-template>
+
+<div class="form-container">
+  <button (click)="showForm = !showForm" class="show-form-button">Add</button>
+
+  <form class="asteroid-form-add" *ngIf="showForm" (ngSubmit)="addAsteroid()">
+    <label>Name:</label>
+    <input type="text" name="name" [(ngModel)]="newAsteroid.name" required>
+
+    <label>Absolute magnitude(h):</label>
+    <input type="text" name="absolute_magnitude" [(ngModel)]="newAsteroid.absolute_magnitude_h" required>
+
+    <label>Distance:</label>
+    <input type="text" name="distance" [(ngModel)]="newAsteroid.distance" required>
+
+    <label>Relative velocity(km/h):</label>
+    <input type="text" name="velocity" [(ngModel)]="newAsteroid.relative_velocity" required>
+
+    <label>IsUnsafe:</label>
+    <input type="text" name="isUnsafe" [(ngModel)]="newAsteroid.is_potentially_hazardous_asteroid" required>
+
+    <label>Orbiting body:</label>
+    <input type="text" name="orbiting_body" [(ngModel)]="newAsteroid.orbiting_body" required>
+
+    <button type="submit">Add Asteroid</button>
+    <button (click)="showForm = !showForm">Close</button>
+  </form>
+</div>
+
+<form class="asteroid-form-edit" *ngIf="editingAsteroid" (ngSubmit)="saveAsteroid()">
+  <label>Name:</label>
+  <input type="text" name="name" [(ngModel)]="editingAsteroid.name" required>
+
+  <label>Absolute magnitude(h):</label>
+  <input type="text" name="absolute_magnitude" [(ngModel)]="editingAsteroid.absolute_magnitude_h" required>
+
+  <label>Distance:</label>
+  <input type="text" name="distance" [(ngModel)]="editingAsteroid.distance" required>
+
+  <label>Relative velocity(km/h):</label>
+  <input type="text" name="velocity" [(ngModel)]="editingAsteroid.relative_velocity" required>
+
+  <label>IsUnsafe:</label>
+  <input type="text" name="isUnsafe" [(ngModel)]="editingAsteroid.is_potentially_hazardous_asteroid" required>
+
+  <label>Orbiting body:</label>
+  <input type="text" name="orbiting_body" [(ngModel)]="editingAsteroid.orbiting_body" required>
+
+  <button type="submit">Save Changes</button>
+  <button type="submit">Close</button>
+</form>
+
+<table class="table-design">
+  <thead>
+    <tr>
+      <th (click)="sortBy('name')" class="clickable-header">Name</th>
+      <th (click)="sortBy('absolute_magnitude_h')" class="clickable-header">Absolute magnitude(h)</th>
+      <th (click)="sortBy('distance')" class="clickable-header">Distance(km)</th>
+      <th (click)="sortBy('relative_velocity')" class="clickable-header">Relative velocity(km/h)</th>
+      <th (click)="sortBy('is_potentially_hazardous_asteroid')" class="clickable-header">IsUnsafe</th>
+      <th (click)="sortBy('orbiting_body')" class="clickable-header">Orbiting body</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let asteroid of asteroids">
+      <td>{{ asteroid.name }}</td>
+      <td>{{ asteroid.absolute_magnitude_h}}</td>
+      <td>{{ asteroid.distance }}</td>
+      <td>{{ asteroid.relative_velocity }}</td>
+      <td>{{ asteroid.is_potentially_hazardous_asteroid }}</td>
+      <td>{{ asteroid.orbiting_body }}</td>
+      <td>
+        <button clas="table-button" (click)="editAsteroid(asteroid)">Edit</button>
+        <button class="table-button" (click)="deleteAsteroid(asteroid)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

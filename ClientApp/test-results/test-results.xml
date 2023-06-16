@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<testsuite name="Chrome 114.0.0.0 (Windows 10)" package="" timestamp="2023-06-02T18:41:27" id="0" hostname="Moran" tests="10" errors="0" failures="0" time="0.058">
+  <properties>
+    <property name="browser.fullName" value="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"/>
+  </properties>
+  <testcase name="NasaPicturesComponent should create" time="0" classname="NasaPicturesComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="PrimeNumbersComponent should return false for non-integer numbers" time="0.039" classname="PrimeNumbersComponent"/>
+  <testcase name="PrimeNumbersComponent should return false for 0 and 1" time="0.005" classname="PrimeNumbersComponent"/>
+  <testcase name="PrimeNumbersComponent should return true for large prime numbers" time="0.003" classname="PrimeNumbersComponent"/>
+  <testcase name="PrimeNumbersComponent should return false for large non-prime numbers" time="0.003" classname="PrimeNumbersComponent"/>
+  <testcase name="PrimeNumbersComponent should return true for prime numbers" time="0.003" classname="PrimeNumbersComponent"/>
+  <testcase name="PrimeNumbersComponent should create" time="0.002" classname="PrimeNumbersComponent"/>
+  <testcase name="PrimeNumbersComponent should return false for negative numbers" time="0.002" classname="PrimeNumbersComponent"/>
+  <testcase name="PrimeNumbersComponent should return false for non-prime numbers" time="0.001" classname="PrimeNumbersComponent"/>
+  <testcase name="NasaAsteroidsComponent should create" time="0" classname="NasaAsteroidsComponent">
+    <skipped/>
+  </testcase>
+  <system-out>
+    <![CDATA[
+]]>
+  </system-out>
+  <system-err/>
+</testsuite>

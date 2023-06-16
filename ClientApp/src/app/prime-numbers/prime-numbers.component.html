@@ -1,0 +1,8 @@
+
+<button id="primeButton" (click)="generatePrimeNumbers()">Prime Numbers</button>
+<div id="primeContainer">
+  <span *ngFor="let prime of primes; let i = index" [style.color]="colorsOfPrimes[i]">
+    {{ prime }}
+  </span>
+</div>
+

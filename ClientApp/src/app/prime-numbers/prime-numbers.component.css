@@ -1,0 +1,27 @@
+
+#primeButton {
+  display: inline-block;
+  background-color: #1b6ec2;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+#primeContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+  #primeContainer span {
+    display: inline-block;
+    background-color: #f1f1f1;
+    color: #000;
+    padding: 5px 10px;
+    border-radius: 20px;
+    margin: 5px;
+  }
